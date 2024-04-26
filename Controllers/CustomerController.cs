@@ -125,9 +125,11 @@ namespace DCEBackEnd.Controllers
         public async Task<ActionResult> GetOrdersByCustomer(string customerId)
         {
             List<Order> orders = new List<Order>();
+            
             try
             {
-                if (orderRepository.GetOrdersByCustomer(customerId.ToString()) != null)
+                orders =  orderRepository.GetOrdersByCustomer(customerId.ToString());
+                if (orders != null)
                 {
                     return Ok(orders);
                 }
